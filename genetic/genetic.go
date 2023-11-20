@@ -1,8 +1,12 @@
 package genetic
 
-import "github.com/ispiroglu/placer/config"
+import (
+	"github.com/ispiroglu/placer/config"
+	"github.com/ispiroglu/placer/file"
+)
 
-func Calculate(cfg *config.GeneticConfig) *Chromosome {
+
+func Calculate(cfg *config.GeneticConfig, env *file.Environment) *Chromosome {
 	p := initPopulation(cfg.PopulationSize, cfg.GeneSize)
 
 	for i := 0; i < cfg.GenerationCount; i++ {

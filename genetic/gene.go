@@ -1,8 +1,13 @@
 package genetic
 
-type gene struct {
+import "github.com/ispiroglu/placer/file"
+
+type Gene struct {
+	*file.Rectangle
 }
 
-func newGene() *gene {
-	return &gene{}
+func NewGene(rect *file.Rectangle) *Gene {
+	return &Gene{
+		Rectangle: rect,
+	}
 }

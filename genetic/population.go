@@ -44,14 +44,14 @@ func (p *population) selectParents() (*Chromosome, *Chromosome) {
 
 	for i := 0; i < tournamentSize; i++ {
 		candidate := p.chromosomes[rand.Intn(len(p.chromosomes))]
-		if p1 == nil || candidate.fitness > p1.fitness {
+		if p1 == nil || candidate.Fitness > p1.Fitness {
 			p1 = candidate
 		}
 	}
 
 	for i := 0; i < tournamentSize; i++ {
 		candidate := p.chromosomes[rand.Intn(len(p.chromosomes))]
-		if candidate != p1 && (p2 == nil || candidate.fitness > p2.fitness) {
+		if candidate != p1 && (p2 == nil || candidate.Fitness > p2.Fitness) {
 			p2 = candidate
 		}
 	}
@@ -64,5 +64,5 @@ func (p *population) sort() {
 }
 
 func (p *population) compareFn(i, j int) bool {
-	return p.chromosomes[i].fitness < p.chromosomes[j].fitness
+	return p.chromosomes[i].Fitness < p.chromosomes[j].Fitness
 }

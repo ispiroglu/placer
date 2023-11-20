@@ -1,19 +1,19 @@
 package genetic
 
 type Chromosome struct {
-	genes   []*gene
-	fitness int
+	Genes   []*Gene
+	Fitness int
 }
 
 func initChromosome(geneSize int) *Chromosome {
-	genes := make([]*gene, geneSize)
+	genes := make([]*Gene, geneSize)
 	for range genes {
-		g := newGene()
+		g := NewGene()
 		genes = append(genes, g)
 	}
 
 	return &Chromosome{
-		genes:   genes,
-		fitness: 0,
+		Genes:   genes,
+		Fitness: 0,
 	}
 }
