@@ -3,18 +3,20 @@ package genetic
 import (
 	"math/rand"
 	"sort"
+
+	"github.com/ispiroglu/placer/area"
 )
 
 type population struct {
 	chromosomes []*Chromosome
-	fitness     int
 }
 
-func initPopulation(populationSize, geneSize int) *population {
+func initPopulation(populationSize, geneSize int, a *area.Area) *population {
 	chromosomes := make([]*Chromosome, populationSize)
 
+	// TODO: this should be done in parallel
 	for range chromosomes {
-		c := initChromosome(geneSize)
+		c := initChromosome(geneSize, a)
 		chromosomes = append(chromosomes, c)
 	}
 

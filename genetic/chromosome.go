@@ -1,19 +1,25 @@
 package genetic
 
+import (
+	"github.com/ispiroglu/placer/area"
+)
+
 type Chromosome struct {
-	Genes   []*Gene
+	// Genes   []*Gene // area.Rectangles are genes
 	Fitness int
+	area    area.Area
 }
 
-func initChromosome(geneSize int) *Chromosome {
-	genes := make([]*Gene, geneSize)
-	for range genes {
-		g := NewGene()
-		genes = append(genes, g)
-	}
+/*
+   !Chromosome should represent area.
+*/
+
+// ? Do I need geneSize? len(area.Rectangles) should be enough?
+func initChromosome(geneSize int, a area.Area) *Chromosome {
+	a.BottomLeftFill()
 
 	return &Chromosome{
-		Genes:   genes,
 		Fitness: 0,
+		area:    a, // * This coppies the area. Not pointer.
 	}
 }

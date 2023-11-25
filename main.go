@@ -3,15 +3,14 @@ package main
 import (
 	"os"
 
+	"github.com/ispiroglu/placer/area"
 	"github.com/ispiroglu/placer/config"
-	"github.com/ispiroglu/placer/file"
 	"github.com/ispiroglu/placer/genetic"
 )
 
 func main() {
 	cfg := config.ParseConfig(os.Args)
-	env := file.ReadEnv()
-	
+	area := area.ReadArea()
 
-	genetic.Calculate(cfg, env)
+	genetic.Calculate(cfg, area)
 }

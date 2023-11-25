@@ -1,13 +1,14 @@
 package genetic
 
-import "github.com/ispiroglu/placer/file"
+import "github.com/ispiroglu/placer/area"
 
-type Gene struct {
-	*file.Rectangle
+type Gene interface {
+	Point() *area.Point
 }
 
-func NewGene(rect *file.Rectangle) *Gene {
+// Can gene be interface?
+/*func NewGene(rect *area.Rectangle) *Gene {
 	return &Gene{
 		Rectangle: rect,
 	}
-}
+}*/

@@ -1,13 +1,12 @@
 package genetic
 
 import (
+	"github.com/ispiroglu/placer/area"
 	"github.com/ispiroglu/placer/config"
-	"github.com/ispiroglu/placer/file"
 )
 
-
-func Calculate(cfg *config.GeneticConfig, env *file.Environment) *Chromosome {
-	p := initPopulation(cfg.PopulationSize, cfg.GeneSize)
+func Calculate(cfg *config.GeneticConfig, a *area.Area) *Chromosome {
+	p := initPopulation(cfg.PopulationSize, cfg.GeneSize, a)
 
 	for i := 0; i < cfg.GenerationCount; i++ {
 		p.calculateFitness()
@@ -15,8 +14,8 @@ func Calculate(cfg *config.GeneticConfig, env *file.Environment) *Chromosome {
 
 		survivors := p.evaluateSurvivors()
 		var newGeneration []*Chromosome
-
-		for len(newGeneration) < len(p.chromosomes)-len(survivors) {
+		newGenCount := len(p.chromosomes) - len(survivors)
+		for len(newGeneration) < newGenCount {
 			c1, c2 := p.selectParents()
 
 			child := crossover(c1, c2)
