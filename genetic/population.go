@@ -11,7 +11,7 @@ type population struct {
 	chromosomes []*Chromosome
 }
 
-func initPopulation(populationSize, geneSize int, a *area.Area) *population {
+func initPopulation(populationSize, geneSize int, a area.Area) *population {
 	chromosomes := make([]*Chromosome, populationSize)
 
 	// TODO: this should be done in parallel

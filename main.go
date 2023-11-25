@@ -12,5 +12,5 @@ func main() {
 	cfg := config.ParseConfig(os.Args)
 	area := area.ReadArea()
 
-	genetic.Calculate(cfg, area)
+	genetic.Calculate(cfg, *area)
 }

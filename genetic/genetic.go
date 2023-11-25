@@ -5,7 +5,7 @@ import (
 	"github.com/ispiroglu/placer/config"
 )
 
-func Calculate(cfg *config.GeneticConfig, a *area.Area) *Chromosome {
+func Calculate(cfg *config.GeneticConfig, a area.Area) *Chromosome {
 	p := initPopulation(cfg.PopulationSize, cfg.GeneSize, a)
 
 	for i := 0; i < cfg.GenerationCount; i++ {

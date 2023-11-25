@@ -5,7 +5,6 @@ import (
 )
 
 type Chromosome struct {
-	// Genes   []*Gene // area.Rectangles are genes
 	Fitness int
 	area    area.Area
 }
@@ -20,6 +19,6 @@ func initChromosome(geneSize int, a area.Area) *Chromosome {
 
 	return &Chromosome{
 		Fitness: 0,
-		area:    a, // * This coppies the area. Not pointer.
+		area:    a,
 	}
 }
